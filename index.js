@@ -9,6 +9,6 @@ app.use(express.json())
 
 app.use("/", usuariosRoutes)
 
-app.listen(PORT, ()=> console.log("Server running ok..."))
+app.listen(PORT, ()=> console.log("Server running ok...\n"))
 app.on("Error", (error) => console.log(`No se conectó el servidor debido a ${error}`))
 

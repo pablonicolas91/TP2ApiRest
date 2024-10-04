@@ -19,6 +19,15 @@ const postUsuario = async (nuevoUsuario) => {
     } else return "El usuario que se intenta agregar ya existe en la base de datos"
 }
 
+const patchUsuario = async (id, data) => {
+    const indiceUsuario = usuarios.findIndex(user => user.id == id)
+    if (indiceUsuario != -1){
+        const usuarioActualizado = {...usuarios[indiceUsuario], ...data}
+        usuarios.splice(indiceUsuario, 1, usuarioActualizado)
+        return usuarioActualizado
+    
+    } else return `No se encontró usuario con id ${id}`
+}
 
 const existe = (usuario) =>{
     return usuarios.find(user => user.legajo == usuario.legajo)
@@ -26,5 +35,6 @@ const existe = (usuario) =>{
 
 export default {
     getUsuarios,
-    postUsuario
+    postUsuario,
+    patchUsuario
 }

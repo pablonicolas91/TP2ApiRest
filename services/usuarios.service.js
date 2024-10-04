@@ -8,10 +8,13 @@ const postUsuario = async(usuario) => {
     return usuariosModels.postUsuario(usuario)
 }
 
-
+const patchUsuario = async(id, data) => {
+    return usuariosModels.patchUsuario(id, data)
+}
 
 
 export default {
     getUsuarios,
-    postUsuario
+    postUsuario,
+    patchUsuario
 }
