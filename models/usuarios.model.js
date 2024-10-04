@@ -16,7 +16,9 @@ const postUsuario = async (nuevoUsuario) => {
         usuarios.push(nuevoUsuario)
         return nuevoUsuario
     
-    } else return "El usuario que se intenta agregar ya existe en la base de datos"
+    } else return {
+        errorMessage:"El usuario que se intenta agregar ya existe en la base de datos"
+    }
 }
 
 const patchUsuario = async (id, data) => {
@@ -26,7 +28,9 @@ const patchUsuario = async (id, data) => {
         usuarios.splice(indiceUsuario, 1, usuarioActualizado)
         return usuarioActualizado
     
-    } else return `No se encontró usuario con id ${id}`
+    } else return {
+        errorMessage:`No se encontró usuario con id ${id}`
+    }
 }
 
 const existe = (usuario) =>{

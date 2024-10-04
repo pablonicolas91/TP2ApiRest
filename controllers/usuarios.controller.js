@@ -11,18 +11,18 @@ const postUsuario = async(req, res) => {
 
     try {
         const usuarioAAgregar = req.body
-    
+
         if (JSON.stringify(req.body) == "{}") {
-            throw new Error("\nEmptyObjectError: No se puede insertar objetos vacíos\n")
+            throw new Error("EmptyObjectError: No se puede insertar objetos vacíos")
         }
 
         const nuevoUsuario = await usuariosServices.postUsuario(usuarioAAgregar)
         res.status(200).send(nuevoUsuario)
-        console.log(JSON.stringify(nuevoUsuario))
+        console.log(nuevoUsuario)
 
     } catch(error){
-        res.status(400).send(error.message)
-        console.log(error.message)
+        res.status(400).send({statusCode: 400, message: error.message})
+        console.log(`\n${error.message}\n`)
     }
 }
 
